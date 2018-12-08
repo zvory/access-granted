@@ -12,12 +12,12 @@ jobs:
   - script: ls target
   - script: ls target/debug
   - task: CopyFiles@0
-  inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
-    contents: 'target/debug/rst'
+    inputs:
+      sourceFolder: '$(Build.SourcesDirectory)'
+      contents: 'target/debug/rst'
   - task: PublishPipelineArtifact@0
     inputs:
-        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        artifactName: rst
+      pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      artifactName: rst
 
 
