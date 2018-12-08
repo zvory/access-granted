@@ -11,9 +11,13 @@ jobs:
   - script: ls
   - script: ls target
   - script: ls target/debug
+  - task: CopyFiles@0
+  inputs:
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: 'target/debug/rst'
   - task: PublishPipelineArtifact@0
     inputs:
-        artifactName: ${{ parameters.name }}
-        targetPath: '~/target/debug/rst'
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: rst
 
 
