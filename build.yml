@@ -8,10 +8,8 @@ jobs:
   steps:
   - script: curl https://sh.rustup.rs -sSf | sh -s -- -y
   - script: ~/.cargo/bin/cargo build
-  - script: ls
-  - script: ls target
   - script: ls target/debug
-  - task: CopyFiles@0
+  - task: CopyFiles@2
     inputs:
       sourceFolder: '$(Build.SourcesDirectory)'
       contents: 'target/debug/rst'
