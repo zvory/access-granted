@@ -7,7 +7,10 @@ jobs:
   pool: ${{ parameters.pool }}
   steps:
   - script: curl https://sh.rustup.rs -sSf | sh -s -- -y
-  - script: ls -la ~
-  - script: ls -la 
   - script: ~/.cargo/bin/cargo build
+  - task: PublishPipelineArtifact
+    inputs:
+        artifactName: ${{ parameters.name }}
+        targetPath: 'target/debug/rst'
+
 
