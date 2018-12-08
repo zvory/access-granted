@@ -9,13 +9,11 @@ jobs:
   - script: curl https://sh.rustup.rs -sSf | sh -s -- -y
   - script: ~/.cargo/bin/cargo build
   - script: ls target/debug
-  - task: CopyFiles@2
+  - task: DownloadBuildArtifacts@0
     inputs:
-      sourceFolder: '$(Build.SourcesDirectory)'
-      contents: 'target/debug/rst'
-  - task: PublishPipelineArtifact@0
-    inputs:
-      pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      artifactName: rst
+        buildType: 'current'
+        downloadType: 'single'
+        artifactName: ${{ parameters.name }}
+        downloadPath: '$(System.ArtifactsDirectory)'
 
 
