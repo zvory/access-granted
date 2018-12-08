@@ -10,9 +10,3 @@ jobs:
     name: Ubuntu1604
     pool:
       vmImage: 'ubuntu-16.04'
-
-- template: build.yml  # Template reference
-  parameters:
-    name: Ubuntu1804
-    pool:
-      vmImage: 'ubuntu-18.04'
