@@ -7,6 +7,5 @@ jobs:
   pool: ${{ parameters.pool }}
   steps:
   - script: curl https://sh.rustup.rs -sSf | sh -s -- -y
-  - script: source ~/.bash_profile
-  - script: cargo build
+  - script: ~/.cargo/bin/cargo build
 
