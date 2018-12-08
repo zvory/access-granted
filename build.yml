@@ -8,7 +8,9 @@ jobs:
   steps:
   - script: curl https://sh.rustup.rs -sSf | sh -s -- -y
   - script: ~/.cargo/bin/cargo build
-  - script: tree
+  - script: ls
+  - script: ls target
+  - script: ls target/debug
   - task: PublishPipelineArtifact@0
     inputs:
         artifactName: ${{ parameters.name }}
