@@ -6,5 +6,10 @@ jobs:
 - job: ${{ parameters.name }}
   pool: ${{ parameters.pool }}
   steps:
-  - script: cargo build
-
+  - script: curl https://sh.rustup.rs -sSf | sh -s -- -y
+  - script: ~/.cargo/bin/cargo build
+  - script: ls target/debug
+  - task: PublishPipelineArtifact@0
+    inputs:
+        artifactName: ${{ parameters.name }}
+        targetPath: 'target/debug'

@@ -1,5 +1,5 @@
 [package]
-name = "rst"
+name = "access-granted"
 version = "0.1.0"
 authors = ["Alex Zvorygin <grafetu@gmail.com>"]
 edition = "2018"
